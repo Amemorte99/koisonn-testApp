@@ -17,11 +17,17 @@ export default function Login() {
 
     try {
       const response = await login(username, password);
-      localStorage.setItem('access_token', response.data.access);
-      localStorage.setItem('refresh_token', response.data.refresh);
+
+      // Sauvegarde du token JWT
+      localStorage.setItem('access_token', response.data.access_token);
+
+      // Redirection vers le dashboard
       window.location.href = '/dashboard';
     } catch (err) {
-      setError(err.response?.data?.message || 'Identifiants invalides ou serveur indisponible.');
+      setError(
+        err.response?.data?.message ||
+          'Identifiants invalides ou serveur indisponible.'
+      );
     } finally {
       setLoading(false);
     }
@@ -32,6 +38,7 @@ export default function Login() {
       <div className="card login-card shadow-lg p-4" style={{ maxWidth: '420px', borderRadius: '1rem' }}>
         <h3 className="text-center mb-4">Connexion</h3>
         {error && <div className="alert alert-danger">{error}</div>}
+
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="username" className="form-label">Utilisateur</label>
@@ -43,10 +50,10 @@ export default function Login() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              autoFocus
               disabled={loading}
             />
           </div>
+
           <div className="mb-3">
             <label htmlFor="password" className="form-label">Mot de passe</label>
             <div className="input-group">
@@ -70,10 +77,12 @@ export default function Login() {
               </button>
             </div>
           </div>
-          <button type="submit" className="btn btn-warning w-100" disabled={loading || !username || !password}>
+
+          <button type="submit" className="btn btn-warning w-100" disabled={loading}>
             {loading ? 'Connexion...' : 'Se connecter'}
           </button>
         </form>
+
         <div className="signup-link mt-3 text-center">
           Pas encore de compte ? <a href="/inscription">Inscrivez-vous</a>
         </div>
