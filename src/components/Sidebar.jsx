@@ -1,6 +1,7 @@
-
+// src/components/Sidebar.jsx
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import './Sidebar.css';
 
 const menu = [
@@ -9,16 +10,22 @@ const menu = [
   { to: '/tasks', icon: 'bi-check-square-fill', label: 'Tasks' },
   { to: '/tenants', icon: 'bi-building-fill', label: 'Tenants' },
   { to: '/users', icon: 'bi-person-fill', label: 'Users' },
+  { to: '/comments', icon: 'bi-chat-dots-fill', label: 'Comments' }, // AJOUTÉ
 ];
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate(); // AJOUTÉ
 
   const handleLogout = () => {
     if (window.confirm('Are you sure you want to logout?')) {
       localStorage.removeItem('access_token');
-      window.location.href = '/login';
+      toast.success('Déconnecté avec succès', {
+        style: { background: '#10b981', color: 'white' },
+        icon: 'check',
+      });
+      navigate('/login', { replace: true }); // FLUIDE
     }
   };
 

@@ -15,31 +15,61 @@ import TasksList from './Tasks/TasksList';
 import TaskForm from './Tasks/TaskForm';
 import TaskView from './Tasks/TaskView';
 
+// TENANTS
+import TenantList from './Tenants/TenantList';
+import TenantForm from './Tenants/TenantForm';
+import TenantView from './Tenants/TenantView';
+
+// USERS
+import UsersList from './Users/UsersList';
+import UserForm from './Users/UserForm';
+import UserView from './Users/UserView';
+
+// COMMENTS
+import CommentsList from './Comments/CommentsList';
+import CommentsPage from './Comments/CommentsPage';
+import CommentForm from './Comments/CommentForm';
+import CommentView from './Comments/CommentView';
+
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Route publique */}
         <Route path="/login" element={<Login />} />
 
-        {/* Routes protégées */}
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Layout><Dashboard /></Layout>} />
           <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
 
-          {/* PROJECTS ROUTES */}
+          {/* PROJECTS */}
           <Route path="/projects" element={<Layout><ProjectsList /></Layout>} />
           <Route path="/projects/new" element={<Layout><ProjectForm /></Layout>} />
           <Route path="/projects/:id" element={<Layout><ProjectView /></Layout>} />
           <Route path="/projects/:id/edit" element={<Layout><ProjectForm /></Layout>} />
 
-          {/* TASKS ROUTES */}
+          {/* TASKS */}
           <Route path="/tasks" element={<Layout><TasksList /></Layout>} />
           <Route path="/tasks/new" element={<Layout><TaskForm /></Layout>} />
           <Route path="/tasks/:id" element={<Layout><TaskView /></Layout>} />
           <Route path="/tasks/:id/edit" element={<Layout><TaskForm /></Layout>} />
 
-          {/* 404 */}
+          {/* TENANTS */}
+          <Route path="/tenants" element={<Layout><TenantList /></Layout>} />
+          <Route path="/tenants/new" element={<Layout><TenantForm /></Layout>} />
+          <Route path="/tenants/:id" element={<Layout><TenantView /></Layout>} />
+          <Route path="/tenants/:id/edit" element={<Layout><TenantForm /></Layout>} />
+
+          {/* USERS */}
+          <Route path="/users" element={<Layout><UsersList /></Layout>} />
+          <Route path="/users/new" element={<Layout><UserForm /></Layout>} />
+          <Route path="/users/:id" element={<Layout><UserView /></Layout>} />
+
+          {/* COMMENTS */}
+          <Route path="/comments" element={<Layout><CommentsPage /></Layout>} />
+          <Route path="/comments/new" element={<Layout><CommentForm /></Layout>} />
+          <Route path="/comments/:id" element={<Layout><CommentView /></Layout>} />
+          <Route path="/comments/:id/edit" element={<Layout><CommentForm /></Layout>} />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

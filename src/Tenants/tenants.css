@@ -1,0 +1,44 @@
+/* src/Tenants/tenants.css */
+.tenant-card,
+.form-card,
+.view-card {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(16px);
+  border-radius: 1.75rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: all 0.4s ease;
+}
+
+.tenant-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.tenant-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  background: linear-gradient(135deg, #a78bfa, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tenant-badge {
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  color: white;
+  font-size: 0.775rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 2rem;
+}
+
+.tenant-desc {
+  color: #cbd5e1;
+  margin: 0 0 1.5rem;
+}
+
+/* Réutilise les styles de projects.css */
+@import url('../Projects/projects.css');
