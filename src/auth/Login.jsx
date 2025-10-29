@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { login } from '../api';
+import { login } from '../api/api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/login.css';
 
