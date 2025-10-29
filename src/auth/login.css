@@ -228,7 +228,10 @@ body, html {
   backdrop-filter: blur(10px);
   margin-bottom: 1.5rem;
 }
-
+#ma{
+  text-align: center;
+  width: 90px;
+}
 /* Sign Up */
 .signup-link {
   text-align: center;
