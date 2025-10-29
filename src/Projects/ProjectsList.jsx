@@ -1,68 +1,56 @@
+// src/Projects/ProjectsList.jsx
 import React, { useEffect, useState } from 'react';
-import { getProjects, deleteProject } from '../api';
-import ProjectForm from './ProjectForm';
-import './projects.css';
+import { getProjects, deleteProject } from '../api/api';
+import { Link } from 'react-router-dom';
 
 export default function ProjectsList() {
   const [projects, setProjects] = useState([]);
-  const [editingProject, setEditingProject] = useState(null);
-  const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProjects();
+    getProjects().then(res => {
+      setProjects(res.data);
+      setLoading(false);
+    });
   }, []);
 
-  const fetchProjects = async () => {
-    const res = await getProjects();
-    setProjects(res.data);
-  };
-
   const handleDelete = async (id) => {
-    if (window.confirm('Voulez-vous vraiment supprimer ce projet ?')) {
+    if (window.confirm('Delete this project?')) {
       await deleteProject(id);
-      fetchProjects();
+      setProjects(projects.filter(p => p.id !== id));
     }
   };
 
-  const handleEdit = (project) => {
-    setEditingProject(project);
-    setShowForm(true);
-  };
-
-  const handleFormClose = () => {
-    setEditingProject(null);
-    setShowForm(false);
-    fetchProjects();
-  };
+  if (loading) return <div className="text-center py-5">Loading...</div>;
 
   return (
-    <div className="projects-container">
-      <h2>Projects</h2>
-      <button onClick={() => setShowForm(true)}>Créer un projet</button>
-
-      {showForm && <ProjectForm project={editingProject} onClose={handleFormClose} />}
-
-      <table className="projects-table">
-        <thead>
-          <tr>
-            <th>Nom</th>
-            <th>Description</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {projects.map(p => (
-            <tr key={p.id}>
-              <td>{p.name}</td>
-              <td>{p.description}</td>
-              <td>
-                <button onClick={() => handleEdit(p)}>Modifier</button>
-                <button onClick={() => handleDelete(p.id)}>Supprimer</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="container py-4">
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h2>Projects</h2>
+        <Link to="/projects/new" className="btn btn-primary">
+          <i className="bi bi-plus-lg"></i> New Project
+        </Link>
+      </div>
+      <div className="row g-4">
+        {projects.map(project => (
+          <div key={project.id} className="col-md-6 col-lg-4">
+            <div className="card h-100 shadow-sm">
+              <div className="card-body">
+                <h5 className="card-title">{project.name}</h5>
+                <p className="card-text text-muted">{project.description}</p>
+                <div className="mt-3">
+                  <Link to={`/projects/${project.id}`} className="btn btn-sm btn-outline-primary me-2">
+                    View
+                  </Link>
+                  <button onClick={() => handleDelete(project.id)} className="btn btn-sm btn-outline-danger">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
