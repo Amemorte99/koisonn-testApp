@@ -1,0 +1,54 @@
+/* ProjectView.css */
+
+div {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #222;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+a {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #f8f9fa;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #333;
+}
+
+p {
+  font-size: 16px;
+  color: #666;
+}

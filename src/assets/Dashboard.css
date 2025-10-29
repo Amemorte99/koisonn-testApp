@@ -1,0 +1,50 @@
+/* Dashboard.css */
+
+div {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Ajouté pour s'assurer qu'il n'y ait pas de marge par défaut */
+}
+
+li {
+  background-color: #f5f7fa;
+  margin-bottom: 12px;
+  padding: 15px 20px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Indique que c'est cliquable */
+}
+
+li:hover {
+  background-color: #e3ebff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3); /* petit effet d'ombre au hover */
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  display: block;
+}
+
+a:hover {
+  text-decoration: underline;
+}
