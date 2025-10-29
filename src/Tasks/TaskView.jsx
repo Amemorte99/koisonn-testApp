@@ -59,10 +59,10 @@ export default function TaskView() {
           </div>
           <div>
             <Link to={`/tasks/${id}/edit`} className="btn btn-outline-secondary me-2">
-              <i className="bi bi-pencil"></i> Edit
+              Edit
             </Link>
             <button onClick={handleDelete} className="btn btn-outline-danger">
-              <i className="bi bi-trash"></i> Delete
+              Delete
             </button>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function TaskView() {
 
         <div className="mt-4">
           <Link to="/tasks" className="btn btn-outline-primary">
-            <i className="bi bi-arrow-left"></i> Back to Tasks
+            Back to Tasks
           </Link>
         </div>
       </div>
