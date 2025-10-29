@@ -5,9 +5,9 @@ import axios from 'axios';
 // ========================
 
 // Production API URL
-const API_URL = "https://project-management-c5kp.onrender.com/api";
+const API_URL = "https://project-management-c5kp.onrender.com"; // Remove /api
 
-// Create Axios instance
+// Create an Axios instance
 const api = axios.create({
   baseURL: API_URL,
   headers: { 'Content-Type': 'application/json' },
@@ -25,7 +25,7 @@ api.interceptors.request.use((config) => {
 // ========================
 
 /**
- * Login user with username and password.
+ * Login user with username and password
  * @param {string} username
  * @param {string} password
  * @returns {Promise<AxiosResponse>}
@@ -79,4 +79,5 @@ export const createComment = (data) => api.post('/comments', data);
 export const updateComment = (id, data) => api.put(`/comments/${id}`, data);
 export const deleteComment = (id) => api.delete(`/comments/${id}`);
 
+// Export the Axios instance for custom requests
 export default api;
