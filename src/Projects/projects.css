@@ -1,0 +1,86 @@
+.projects-container {
+  padding: 20px;
+  background-color: #f0f4f8;
+  border-radius: 12px;
+}
+
+.projects-container h2 {
+  color: #297C74;
+}
+
+.projects-container button {
+  background-color: #FF9D01;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.projects-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.projects-container th,
+.projects-container td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.projects-container th {
+  color: #297C74;
+}
+
+.projects-container tr:hover {
+  background-color: #f4f4f4;
+}
+
+/* Modal form */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 400px;
+}
+
+.project-form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.project-form input,
+.project-form textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.project-form .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.project-form button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: #297C74;
+  color: #fff;
+}

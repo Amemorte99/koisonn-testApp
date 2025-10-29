@@ -1,42 +1,118 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Container centré */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #297C74, #1f5e5b);
+  padding: 20px;
+}
+
+/* Carte login */
+.login-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  max-width: 400px;
+  width: 100%;
   text-align: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  max-width: 150px;
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  color: #297C74;
+  margin-bottom: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Form group */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
 }
 
-.card {
-  padding: 2em;
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
 }
 
-.read-the-docs {
-  color: #888;
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #aad1c2;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #FF9D01;
+  outline: none;
+  box-shadow: 0 0 8px rgba(255,157,1,0.4);
+}
+
+/* Password wrapper */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #FF9D01;
+  font-weight: 600;
+}
+
+/* Submit button */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #FF9D01;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.login-button:hover {
+  background-color: #e08901;
+  transform: scale(1.05);
+}
+
+.login-button:disabled {
+  background-color: #f4b873;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error */
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Signup */
+.signup-link {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+.signup-link a {
+  color: #FF9D01;
+  text-decoration: none;
+  font-weight: 600;
+}
+.signup-link a:hover {
+  color: #e08901;
 }
